@@ -1,7 +1,7 @@
 
 
 $(document).ready(function() { //validacion registro cliente
-    
+
  $('#guardar').click(function() {
 
 const email = $("#email").val();
@@ -12,8 +12,9 @@ const password = $('#password').val();
 const nombreMascota = $('#nombreMascota').val();
 const tipoMascota = $('#tipoMascota').val();
 const raza = $('#raza').val();
+const registroService = new RegistroService();
 
-       /* if (email.trim().trim().length === 0) {
+       if (email.trim().trim().length === 0) {
             alert("Debe ingresar un Correo Electronico");
          }
 
@@ -58,42 +59,12 @@ const raza = $('#raza').val();
 
         if (raza.trim().length === 0) {
             alert("Debe ingresar raza de la mascota");
-        } */
+        } 
 
-        //llamo la funcion registrar
-      //  nuevoRegistro("5", email, "3", nombre, apellido, password,  telefono); 
-    //registro("5", "email", "3", "nombre", "apellido", "password",  "telefono");
-    fetch("http://localhost:8080/Registro", {
-        method: 'POST',
-        Headers: {
-            'Content-Type': 'application/json'
-         },
-         
-          body: JSON.stringify({
-            id_Registro: "34",
-            mail: email,
-            id_Mascota: "43", 
-            nombre: nombre,
-            apellido: apellido,
-            contrasena: password, 
-            telefono: telefono
-        })
-  })
-  .then(response => {
-    if (response.ok) {
-      // La solicitud fue exitosa
-      console.log('Datos enviados correctamente');
-    } else {
-      // La solicitud falló
-      console.log('Error al enviar los datos');
-    }
-  })
-  .catch(e => {
-        response.status(500).json(e);
-    }) 
+        registroService.registro("1", email, nombreMascota, nombre, apellido, password, telefono);
+        
     });
 
- 
 });
 
 
