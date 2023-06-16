@@ -11,6 +11,7 @@ const telefono = $('#telefono').val();
 const password = $('#password').val();
 const nombreMascota = $('#nombreMascota').val();
 const tipoMascota = $('#tipoMascota').val();
+const fechaNacimiento = $('#fechaNacimiento').val();
 const raza = $('#raza').val();
 const registroService = new RegistroService();
 
@@ -60,8 +61,11 @@ const registroService = new RegistroService();
         if (raza.trim().length === 0) {
             alert("Debe ingresar raza de la mascota");
         } 
+    
 
-        registroService.registro("1", email, nombreMascota, nombre, apellido, password, telefono);
+        registroService.registro("100", email, nombre, apellido, password, telefono, nombreMascota, tipoMascota, fechaNacimiento, raza);
+
+    
         
     });
 
