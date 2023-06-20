@@ -1,5 +1,5 @@
 
-class RegistroService {
+class Services {
     constructor() {
         this.URL = "http://localhost:8080/Registro";
     }
@@ -39,8 +39,8 @@ class RegistroService {
         response.status(500).json(e);
     }) 
     }
-
-    async registroAgenda( idAgenda, nombreServicio, idRegistro, fecha, hora){
+    
+    async registroAgenda( idAgenda, nombreServicio, nombreEspecialista, idRegistro, fechaAgenda, horaAgenda){
       await fetch("http://localhost:8080/Agendar", {
       method: 'post',
       headers: {
@@ -49,9 +49,10 @@ class RegistroService {
       body: JSON.stringify({
        id_Agendar: idAgenda,
        nombre_Servicio: nombreServicio,
+       especialista: nombreEspecialista,
        id_Registro: idRegistro,
-       fecha: fecha,
-       hora: hora
+       fecha: fechaAgenda,
+       hora: horaAgenda
 
       })
 })

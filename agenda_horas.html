@@ -85,53 +85,42 @@
                         <form>
                             <div class="row g-3">
                                 <div class="col-12 col-sm-6">
-                                    <select class="form-select bg-white border-0" style="height: 55px;">
+                                    <select class="form-select bg-white border-0" id="especialidad"style="height: 55px;">
                                         <option selected>Seleccione especialidad</option>
-                                        <option value="1">Oncología</option>
-                                        <option value="2">Oftalmología</option>
-                                        <option value="3">Cardiología</option>
-                                        <option value="4">Traumatología</option>
-                                        <option value="5">Gastroenterología</option>
-                                        <option value="6">Medicina Felina</option>
-                                        <option value="7">Ginecología y Reproducción</option>
-                                        <option value="7">Dermatología y Endocrinología</option>
+                                        <option value="Oncología">Oncología</option>
+                                        <option value="Oftalmología">Oftalmología</option>
+                                        <option value="Cardiología">Cardiología</option>
+                                        <option value="Traumatología">Traumatología</option>
+                                        <option value="Gastroenterología">Gastroenterología</option>
+                                        <option value="Medicina Felina">Medicina Felina</option>
+                                        <option value="Ginecología y Reproducción">Ginecología y Reproducción</option>
+                                        <option value="Dermatología y Endocrinología">Dermatología y Endocrinología</option>
                                     </select>
                                 </div>
                                 <div class="col-12 col-sm-6">
-                                    <select class="form-select bg-white border-0" style="height: 55px;">
+                                    <select class="form-select bg-white border-0" id="especialista" style="height: 55px;">
                                         <option selected>Seleccione especialista</option>
-                                        <option value="1">Maria Salges</option>
-                                        <option value="2">Ana Suarez</option>
-                                        <option value="4">Asstrid Casanova</option>
-                                        <option value="5">Roma Mazo</option>
-                                        <option value="6">Jaime Uribe</option>
-                                        <option value="7">Fran Santos</option>
+                                        <option value="Maria Salges">Maria Salges</option>
+                                        <option value="Ana Suarez">Ana Suarez</option>
+                                        <option value="Asstrid Casanova">Asstrid Casanova</option>
+                                        <option value="Roma Mazo">Roma Mazo</option>
+                                        <option value="Jaime Uribe">Jaime Uribe</option>
+                                        <option value="Fran Santos">Fran Santos</option>
                                     </select>
                                 </div>
-                                <div class="col-12 col-sm-6">
-                                    <input type="text" class="form-control bg-white border-0"
-                                        id= "nombereApellido" placeholder="Nombre y Apellido" style="height: 55px;">
-                                </div>
-                                <div class="col-12 col-sm-6">
-                                    <input type="email" class="form-control bg-white border-0"  id= "email" placeholder="Email"
-                                        style="height: 55px;">
-                                </div>
+                    
                                 <div class="col-12 col-sm-6">
                                     <div class="date" id="date" data-target-input="nearest">
-                                        <input type="text" class="form-control bg-white border-0 datetimepicker-input"
-                                            placeholder="Seleccione Fecha" data-target="#date"
-                                            data-toggle="datetimepicker" style="height: 55px;">
+                                        <input class="form-control bg-white border-0" id="fechaAgenda" type="date" placeholder="Seleccione Fecha" style="height: 55px;"/>
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-6">
                                     <div class="time" id="time" data-target-input="nearest">
-                                        <input type="text" class="form-control bg-white border-0 datetimepicker-input"
-                                            placeholder="Seleccione Hora" data-target="#time"
-                                            data-toggle="datetimepicker" style="height: 55px;">
+                                        <input class="form-control bg-white border-0" id="horaAgenda" type="time" name="time" style="height: 55px;"/>
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <button class="btn btn-primary w-100 py-3" id="guardar" type="submit">Reservar</button>
+                                    <button class="btn btn-primary w-100 py-3" id="guardar" type="submit">Reservar Hora</button>
                                 </div>
                                 <div class="row">
                                     <p id="resultado"></p>
@@ -144,8 +133,7 @@
         </div>
     </div>
     <!-- Formulario Agendar hora -->
-
-
+      
     <!-- Footer  -->
     <div class="container-fluid bg-dark text-light mt-5 py-5">
         <div class="container py-5">
@@ -182,12 +170,6 @@
                 <div class="col-lg-3 col-md-6">
                     <h4 class="d-inline-block text-primary text-uppercase border-bottom border-5 border-secondary mb-4">
                         Enterate de todo</h4>
-                    <form action="">
-                        <div class="input-group">
-                            <input type="text" class="form-control p-3 border-0" placeholder="Escribe tu mail">
-                            <button class="btn btn-primary">Inscribirme</button>
-                        </div>
-                    </form>
                     <h6 class="text-primary text-uppercase mt-4 mb-3">Siguenos</h6>
                     <div class="d-flex">
                         <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-2"
@@ -217,7 +199,8 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-    <script src="js/validacion_reserva.js"></script>
+    <script src="js/validacion_Agenda.js"></script>
+    <script src="Api/script.js"></script>
 </body>
 
 </html>

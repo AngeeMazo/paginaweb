@@ -13,7 +13,7 @@ const nombreMascota = $('#nombreMascota').val();
 const tipoMascota = $('#tipoMascota').val();
 const fechaNacimiento = $('#fechaNacimiento').val();
 const raza = $('#raza').val();
-const registroService = new RegistroService();
+const registroService = new Services();
 
        if (email.trim().trim().length === 0) {
             alert("Debe ingresar un Correo Electronico");
@@ -38,7 +38,6 @@ const registroService = new RegistroService();
         if (password.trim().length===0)
         {
            alert("Debe ingresar una Contraseña ");
-
         }
 
         if ($("#validatePassword").val().trim().length===0)
@@ -63,9 +62,7 @@ const registroService = new RegistroService();
         } 
     
 
-        registroService.registro("100", email, nombre, apellido, password, telefono, nombreMascota, tipoMascota, fechaNacimiento, raza);
-
-    
+        registroService.registro("100", email, nombre, apellido, password, telefono, nombreMascota, tipoMascota, fechaNacimiento, raza); 
         
     });
 
