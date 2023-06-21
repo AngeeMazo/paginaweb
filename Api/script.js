@@ -90,4 +90,32 @@ console.log(response);
 }) 
 }
 
+/*async enviarMensaje(nombre, mail, mensaje){
+  await fetch("http://localhost:8080/form_Contacto", {
+  method: 'post',
+  headers: {
+    "Content-Type": "application/json"
+  }, 
+  body: JSON.stringify({
+  nombre: nombre,
+  mail: mail,
+  mensaje: mensaje
+
+  })
+})
+.then(response => {
+if (response.ok) {
+// La solicitud fue exitosa
+console.log('Mensaje enviado correctamente');
+
+} else {
+// La solicitud falló
+console.log('Error al enviar Mensaje');
+
+}
+})
+.catch(e => {
+  response.status(500).json(e);
+}) 
+}*/
 }
