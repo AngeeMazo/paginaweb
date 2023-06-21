@@ -71,4 +71,23 @@ class Services {
       response.status(500).json(e);
   }) 
   }
+
+
+  async login( mail, contrasena){
+    await fetch(`http://localhost:8080/Registro?mail=${mail}&contrasena=${contrasena}`, {
+    method: 'get',
+    headers: {
+      "responseType": "json"
+    }, 
+   
+})
+.then(response => {
+console.log(response);
+  
+})
+.catch(e => {
+    response.status(500).json(e);
+}) 
+}
+
 }
