@@ -27,8 +27,7 @@ class Services {
   .then(response => {
     if (response.ok) {
       // La solicitud fue exitosa
-      console.log('Datos enviados correctamente');
-      
+      alert("Registro Exitoso, Por favor incia sesión"); 
     } else {
       // La solicitud falló
       console.log('Error al enviar los datos');
@@ -40,7 +39,7 @@ class Services {
     }) 
     }
     
-    async registroAgenda( idAgenda, nombreServicio, nombreEspecialista, idRegistro, fechaAgenda, horaAgenda){
+    async registroAgenda( idAgenda, nombreServicio, nombreEspecialista, idRegistro, fechaAgenda, horaAgenda, idServicio){
       await fetch("http://localhost:8080/Agendar", {
       method: 'post',
       headers: {
@@ -52,7 +51,10 @@ class Services {
        especialista: nombreEspecialista,
        id_Registro: idRegistro,
        fecha: fechaAgenda,
-       hora: horaAgenda
+       hora: horaAgenda,
+       id_Servicio: idServicio
+
+
 
       })
 })
@@ -60,20 +62,19 @@ class Services {
   if (response.ok) {
     // La solicitud fue exitosa
     console.log('Datos enviados correctamente');
-    
+    alert("Hora Agendada con Exito"); 
   } else {
     // La solicitud falló
-    console.log('Error al enviar los datos');
-   
+    console.log('Error al enviar los datos'); 
   }
 })
 .catch(e => {
       response.status(500).json(e);
   }) 
-  }
+}
 
 
-  async login( mail, contrasena){
+ /* async login( mail, contrasena){
     await fetch(`http://localhost:8080/Registro?mail=${mail}&contrasena=${contrasena}`, {
     method: 'get',
     headers: {

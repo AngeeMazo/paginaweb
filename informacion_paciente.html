@@ -72,15 +72,13 @@
         <div class="bg-light text-center rounded p-7">
           <h1 class="mb-5">Modificar hora</h1>
 
-          <form class="form-floating">
-            <h4>*Ingrese email de la reserva*</h4>
-            <input type="email" class="form-control bg-white border-0" id="Email" name="i_like" required><br>
+          <form class="form-floating" id="consultarHora">
             <button class="btn btn-primary w-100 py-3" type="submit"> Buscar Reserva</button>
             <br><br>
 
             <div class="row g-3">
               <div class="col-12 col-sm-6">
-                <select class="form-select bg-white border-0" style="height:65px;">
+                <select class="form-select bg-white border-0" id="especialidad"  style="height:65px;">
                   <option selected>Seleccione especialidad</option>
                   <option value="1">Oncología</option>
                   <option value="2">Oftalmología</option>
@@ -199,6 +197,7 @@
 
   <!-- Template Javascript -->
   <script src="js/main.js"></script>
+  <script src="js/validacion_consultar_Hora.js"></script>
   </s>
 
 </html>

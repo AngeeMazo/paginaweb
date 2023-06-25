@@ -61,9 +61,8 @@ const registroService = new Services();
             alert("Debe ingresar raza de la mascota");
         } 
     
-
         registroService.registro("100", email, nombre, apellido, password, telefono, nombreMascota, tipoMascota, fechaNacimiento, raza); 
-        
+      
     });
 
 });
