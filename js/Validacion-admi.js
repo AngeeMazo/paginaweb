@@ -35,9 +35,18 @@ $(document).ready(function(){
 
     // Eliminar button click
 	$(document).on("click", ".delete", function(){
+    console.log($(this).parents("tr").index() );
+    const index = $(this).parents("tr").index();
+    let tablaUsuarios = document.querySelector("#tabla tbody");
+    var row = tablaUsuarios.rows[index];
+    // Obtener el elemento con el idRegistro
+    // Seleccionar el elemento <td> con el atributo "idRegistro"
+    var idRegistroElement = row.querySelector('tr td[id="idRegistro"]');
+    // Obtener el valor del atributo "idRegistro"
+    var idRegistroValue = idRegistroElement.textContent;
     $(this).parents("tr").remove();
-$(".add-new").removeAttr("disabled");
-});
+    eliminarRegistro(idRegistroValue);
+  });
 
 })
 
@@ -57,7 +66,7 @@ function llenarTabla() {
 // Formatea la fecha en el formato dd/MM/yyyy
 var fechaFormateada = dia.toString().padStart(2, '0') + '/' + mes.toString().padStart(2, '0') + '/' + anio;
    
-		let tr = "<tr> <td>" + itemdatos.nombre +  "</td> <td>" + itemdatos.apellido + "</td> <td>"  + fechaFormateada +
+		let tr = "<tr> <td id='idRegistro'>" + itemdatos.id_Registro  + "</td> <td>"+ itemdatos.nombre +  "</td> <td>" + itemdatos.apellido + "</td> <td>"  + fechaFormateada +
 		 "</td> <td>" + itemdatos.nombre_mascota + "</td> <td>" + itemdatos.tipo_mascota + "</td> <td><a class='delete' title='Delete' data-toggle='tooltip'><i class='bi bi-trash'></i></a>"+ "</td></tr>"
 	    
 		tablaUsuarios.innerHTML += tr;
@@ -66,7 +75,23 @@ var fechaFormateada = dia.toString().padStart(2, '0') + '/' + mes.toString().pad
 
 }
 
-
-
 llenarTabla();
 	
+function eliminarRegistro(idRegistro) {
+  // Solicitud a la API para autenticar el inicio de sesión
+  fetch(`http://localhost:8080/deleteRegistro?idRegistro=${idRegistro}`, {
+    method: 'delete',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+.then(res => res.json())
+.then(response => {
+  if (response.ok) {
+    // La solicitud fue exitosa
+    console.log('Registro eliminado correctamente');
+    alert("Registro eliminado con Exito"); 
+  } 
+      
+  });
+}
