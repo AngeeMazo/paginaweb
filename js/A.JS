@@ -17,7 +17,7 @@ $(document).ready(function(){
 		$("table tbody tr").eq(index + 1).find(".add, .edit").toggle();
         $('[data-toggle="tooltip"]').tooltip();
     });
-    
+
 	// Export a Excel
     const $btnExportar = document.querySelector("#btnExportar"),
         $tabla = document.querySelector("#tabla");
@@ -33,13 +33,42 @@ $(document).ready(function(){
         tableExport.export2file(preferenciasDocumento.data, preferenciasDocumento.mimeType, preferenciasDocumento.filename, preferenciasDocumento.fileExtension, preferenciasDocumento.merges, preferenciasDocumento.RTL, preferenciasDocumento.sheetname);
     });
 
-    // Eliminar button click
+	// Agregar  button click
+	$(document).on("click", ".add", function(){
+		var empty = false;
+		var input = $(this).parents("tr").find('input[type="text"]');
+        input.each(function(){
+			if(!$(this).val()){
+				$(this).addClass("error");
+				empty = true; 
+			} else{
+                $(this).removeClass("error");
+            }
+		});
+		$(this).parents("tr").find(".error").first().focus();
+		if(!empty){
+			input.each(function(){
+				$(this).parent("td").html($(this).val());
+			});			
+			$(this).parents("tr").find(".add, .edit").toggle();
+			$(".add-new").removeAttr("disabled");
+		}		
+    });
+	// Editar button click
+	$(document).on("click", ".edit", function(){		
+        $(this).parents("tr").find("td:not(:last-child)").each(function(){
+			$(this).html('<input type="text" class="form-control" value="' + $(this).text() + '">');
+		});		
+		$(this).parents("tr").find(".add, .edit").toggle();
+		$(".add-new").attr("disabled", "disabled");
+    });
+	// Eliminar button click
 	$(document).on("click", ".delete", function(){
-    $(this).parents("tr").remove();
-$(".add-new").removeAttr("disabled");
+        $(this).parents("tr").remove();
+		$(".add-new").removeAttr("disabled");
+    });
 });
-
-})
+ 
 
 function llenarTabla() {
 	// Solicitud a la API para autenticar el inicio de sesión
@@ -49,16 +78,9 @@ function llenarTabla() {
 	let tablaUsuarios = document.querySelector("#tabla tbody");
 
 	for (const itemdatos of datos) {
-    var date = new Date(itemdatos.fecha_nacimiento);
-    var dia = date.getDate();
-    var mes = date.getMonth() + 1; // Se suma 1 ya que los meses en JavaScript comienzan en 0
-    var anio = date.getFullYear();
-
-// Formatea la fecha en el formato dd/MM/yyyy
-var fechaFormateada = dia.toString().padStart(2, '0') + '/' + mes.toString().padStart(2, '0') + '/' + anio;
-   
-		let tr = "<tr> <td>" + itemdatos.nombre +  "</td> <td>" + itemdatos.apellido + "</td> <td>"  + fechaFormateada +
-		 "</td> <td>" + itemdatos.nombre_mascota + "</td> <td>" + itemdatos.tipo_mascota + "</td> <td><a class='delete' title='Delete' data-toggle='tooltip'><i class='bi bi-trash'></i></a>"+ "</td></tr>"
+		let tr = "<tr> <td>" + itemdatos.id_Registro +  "</td> <td>" + itemdatos.nombre +  "</td> <td>" + itemdatos.apellido +
+		 "</td> <td>" + itemdatos.nombre_mascota  + "</td> <td>"  + itemdatos.fecha_nacimiento +
+		  "</td> <td>" + itemdatos.nombreServicio + "</td></tr>"
 	    
 		tablaUsuarios.innerHTML += tr;
 	}

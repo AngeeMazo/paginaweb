@@ -22,12 +22,18 @@ function consultar(idRegistroLocal) {
      alert("usuario no existe ");
     } else {
        var dato = datos[0];
-       console.log(datos);  
+       var date = new Date(dato.fecha);
+       var dia = date.getDate();
+       var mes = date.getMonth() + 1; // Se suma 1 ya que los meses en JavaScript comienzan en 0
+       var anio = date.getFullYear();
 
-       let campoEspecialidad = document.querySelector("#especialidad");
-       console.log(dato.nombre_Servicio);
+// Formatea la fecha en el formato dd/MM/yyyy
+var fechaFormateada = dia.toString().padStart(2, '0') + '/' + mes.toString().padStart(2, '0') + '/' + anio;
+      
        $("#especialidad").val(dato.id_Servicio);
-
+       $("#especialista").val(dato.id_Especialista);
+       $("#fechas").val(fechaFormateada);
+       $("#horas").val(dato.hora);
       }
   });
  

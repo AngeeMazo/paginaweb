@@ -5,8 +5,8 @@ $('#guardar').click(function()  {
 var idRegistroLocal = localStorage.getItem("dato");
 
     const nombreEspecialidad = $('#especialidad').val();
-    var e =document.getElementById("especialidad");
-    const idEspecialidad = e.selectedIndex;
+    const idEspecialidad = document.getElementById("especialidad").selectedIndex;
+    const idEspecialista = document.getElementById("especialista").selectedIndex;
     const nombreEspecialista = $('#especialista').val();
     const fechaAgenda = $('#fechaAgenda').val();
     const horaAgenda = $('#horaAgenda').val();
@@ -23,12 +23,12 @@ var idRegistroLocal = localStorage.getItem("dato");
             return;
           }
       
-      agendarService.registroAgenda("2", nombreEspecialidad, nombreEspecialista, idRegistroLocal, fechaAgenda, horaAgenda, idEspecialidad);
+      agendarService.registroAgenda("2", nombreEspecialidad, nombreEspecialista, idRegistroLocal, fechaAgenda, horaAgenda, idEspecialidad, idEspecialista );
     });
 
     $('#mostraConsulta').click(function() {
-      window.location.href = "informacion_paciente";
-      window.location.replace('informacion_paciente"'); 
+      window.location.href = "consulta_reserva.html";
+      window.location.replace('consulta_reserva.html'); 
 
     });
 

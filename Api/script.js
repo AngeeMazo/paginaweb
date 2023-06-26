@@ -39,7 +39,7 @@ class Services {
     }) 
     }
     
-    async registroAgenda( idAgenda, nombreServicio, nombreEspecialista, idRegistro, fechaAgenda, horaAgenda, idServicio){
+    async registroAgenda( idAgenda, nombreServicio, nombreEspecialista, idRegistro, fechaAgenda, horaAgenda, idServicio, idEspecialista){
       await fetch("http://localhost:8080/Agendar", {
       method: 'post',
       headers: {
@@ -52,10 +52,8 @@ class Services {
        id_Registro: idRegistro,
        fecha: fechaAgenda,
        hora: horaAgenda,
-       id_Servicio: idServicio
-
-
-
+       id_Servicio: idServicio,
+       id_Especialista: idEspecialista
       })
 })
 .then(response => {

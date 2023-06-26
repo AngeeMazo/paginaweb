@@ -70,10 +70,10 @@
     <div class="containner-fluid py-5">
       <div class="col-lg-6">
         <div class="bg-light text-center rounded p-7">
-          <h1 class="mb-5">Modificar hora</h1>
+          <h1 class="mb-5">Ver hora reservada</h1>
 
           <form class="form-floating" id="consultarHora">
-            <button class="btn btn-primary w-100 py-3" type="submit"> Buscar Reserva</button>
+            <button class="btn btn-primary w-100 py-3" type="submit"> Buscar Hora</button>
             <br><br>
 
             <div class="row g-3">
@@ -87,43 +87,33 @@
                   <option value="5">Gastroenterología</option>
                   <option value="6">Medicina Felina</option>
                   <option value="7">Ginecología y Reproducción</option>
-                  <option value="7">Dermatología y Endocrinología</option>
+                  <option value="8">Dermatología y Endocrinología</option>
                 </select>
               </div>
               <div class="col-12 col-sm-6">
-                <select class="form-select bg-white border-0" style="height: 55px;">
+                <select class="form-select bg-white border-0" id="especialista" style="height: 55px;">
                   <option selected>Seleccione especialista</option>
                   <option value="1">Maria Salges</option>
                   <option value="2">Ana Suarez</option>
-                  <option value="4">Asstrid Casanova</option>
-                  <option value="5">Roma Mazo</option>
-                  <option value="6">Jaime Uribe</option>
-                  <option value="7">Fran Santos</option>
+                  <option value="3">Asstrid Casanova</option>
+                  <option value="4">Roma Mazo</option>
+                  <option value="5">Jaime Uribe</option>
+                  <option value="6">Fran Santos</option>
                 </select>
               </div>
               <div class="col-12 col-sm-6">
-                <input type="text" class="form-control bg-white border-0" placeholder="Nombre y Apellido"
-                  style="height: 55px;">
-              </div>
-              <div class="col-12 col-sm-6">
-                <input type="email" class="form-control bg-white border-0" placeholder="Email" style="height: 55px;">
-              </div>
-              <div class="col-12 col-sm-6">
-                <div class="date" id="date" data-target-input="nearest">
-                  <input type="text" class="form-control bg-white border-0 datetimepicker-input"
+                <div class="date" data-target-input="nearest">
+                  <input type="text" class="form-control bg-white border-0 datetimepicker-input" id="fechas" 
                     placeholder="Seleccione Fecha" data-target="#date" data-toggle="datetimepicker"
                     style="height: 55px;">
                 </div>
               </div>
               <div class="col-12 col-sm-6">
-                <div class="time" id="time" data-target-input="nearest">
-                  <input type="text" class="form-control bg-white border-0 datetimepicker-input"
+                <div class="time" data-target-input="nearest">
+                  <input type="text" class="form-control bg-white border-0 datetimepicker-input" id="horas"
                     placeholder="Seleccione Hora" data-target="#time" data-toggle="datetimepicker"
                     style="height: 55px;">
                 </div>
-              </div>
-              <div class="col-12">
-                <button class="btn btn-primary w-100 py-3" type="submit"> Modificar Hora </button>
               </div>
             </div>
           </form>
